@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition'
+define service ZUI_RAP_SD02 {
+  expose ZRD_PV_HEADER;
+  expose ZRD_PV_ITEM;
+}

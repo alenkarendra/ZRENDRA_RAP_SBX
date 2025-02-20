@@ -1,0 +1,68 @@
+managed implementation in class zbp_i_001_h unique;
+strict ( 2 );
+
+define behavior for ZI_001_H alias Header
+persistent table ztrd_h_001
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+
+  field ( numbering : managed ) HeadregUuid;
+  field ( readonly ) HeadregUuid, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  action ( features : instance ) acceptTravel result [1] $self;
+  action ( features : instance ) rejectTravel result [1] $self;
+
+  determination setRegistrationId on save { create; }
+  determination setStatus on modify { create; }
+
+  create;
+  update;
+  delete;
+  association item { create; }
+
+  mapping for ztrd_h_001
+    {
+      HeadregUuid        = headreg_uuid;
+      RegistrationId     = registration_id;
+      VendorName         = vendor_name;
+      VendorCategory     = vendor_category;
+      RegDate            = reg_date;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+      Status             = status;
+    }
+}
+
+define behavior for ZI_001_I //alias <alias_name>
+persistent table ztrd_i_001
+lock dependent by Header
+authorization dependent by Header
+etag master LocalLastChangedAt
+{
+  field ( readonly ) ItemregUuid, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+  field ( numbering : managed ) ItemregUuid;
+
+  update;
+  delete;
+  field ( readonly ) HeadregUuid;
+  association Header;
+
+  mapping for ztrd_i_001
+    {
+      ItemregUuid        = itemreg_uuid;
+      HeadregUuid        = headreg_uuid;
+      PositionNumber     = position_number;
+      ItemKeyname        = item_keyname;
+      ItemValue          = item_value;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}

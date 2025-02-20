@@ -1,0 +1,28 @@
+@Metadata.layer: #CORE
+annotate view ZRD_PV_HEADER with
+{
+  @UI: { lineItem: [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10 } ],
+         selectionField: [{ position: 10 }]}
+  HeadregUuid;
+  @UI: { lineItem: [ { position: 20 } ],
+   identification: [ { position: 20 } ],
+   selectionField: [{ position: 20 }]}
+  RegistrationId;
+  @UI: { lineItem: [ { position: 30 } ],
+   identification: [ { position: 30 } ],
+   selectionField: [{ position: 30 }]}
+  VendorName;
+  @UI: { lineItem: [ { position: 40 } ],
+   identification: [ { position: 40 } ],
+   selectionField: [{ position: 40 }]}
+  VendorCategory;
+
+  @UI: { lineItem: [{ position:40 }]}
+  RegDate;
+
+  @UI.hidden: true
+  Status;
+
+
+}

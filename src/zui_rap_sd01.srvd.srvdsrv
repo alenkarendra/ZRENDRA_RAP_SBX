@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for ZI_001_H'
+define service ZUI_RAP_SD01 {
+  expose ZI_001_H as Header;
+  expose ZI_001_I as Items;
+}
