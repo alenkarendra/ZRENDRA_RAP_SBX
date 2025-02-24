@@ -2,7 +2,7 @@
 @EndUserText.label: 'Header Data Definition Root'
 define root view entity ZI_001_H
   as select from ztrd_h_001
-  composition of ZI_001_I as Item
+  composition [0..*] of ZI_001_I as Item
 {
   key headreg_uuid          as HeadregUuid,
       registration_id       as RegistrationId,
