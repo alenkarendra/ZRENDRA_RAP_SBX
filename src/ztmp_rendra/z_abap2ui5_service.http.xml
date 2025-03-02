@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_HTTP" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <HTTPID>Z_ABAP2UI5_SERVICE</HTTPID>
+   <HTTPTEXT>
+    <ID>Z_ABAP2UI5_SERVICE</ID>
+    <VERSION>I</VERSION>
+    <LANG>E</LANG>
+    <SHORTTEXT>ABAP2UI5 Service</SHORTTEXT>
+   </HTTPTEXT>
+   <HTTPHDL>
+    <item>
+     <ID>Z_ABAP2UI5_SERVICE</ID>
+     <VERSION>I</VERSION>
+     <SERVICEORDER>01</SERVICEORDER>
+     <SERVICEHANDLER>ZCL_ABAP2UI5_SERVICE</SERVICEHANDLER>
+    </item>
+   </HTTPHDL>
+  </asx:values>
+ </asx:abap>
+</abapGit>
