@@ -20,6 +20,7 @@ define root view entity ZRD_PV_HEADER
       LastChangedAt,
       LocalLastChangedAt,
       Status,
+      Keterangan,
       /* Associations */
       Item : redirected to composition child ZRD_PV_ITEM
 }

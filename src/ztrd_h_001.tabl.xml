@@ -115,6 +115,15 @@
      <LENG>000001</LENG>
      <MASK>  CHAR</MASK>
     </DD03P>
+    <DD03P>
+     <FIELDNAME>KETERANGAN</FIELDNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <INTTYPE>g</INTTYPE>
+     <INTLEN>000008</INTLEN>
+     <DATATYPE>STRG</DATATYPE>
+     <LENG>000300</LENG>
+     <MASK>  STRG</MASK>
+    </DD03P>
    </DD03P_TABLE>
   </asx:values>
  </asx:abap>

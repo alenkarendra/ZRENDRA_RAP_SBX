@@ -15,5 +15,6 @@ define root view entity ZI_001_H
       last_changed_at       as LastChangedAt,
       local_last_changed_at as LocalLastChangedAt,
       status                as Status,
+      keterangan            as Keterangan,
       Item // Make association public
 }

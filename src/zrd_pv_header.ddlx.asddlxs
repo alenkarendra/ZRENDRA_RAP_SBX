@@ -1,4 +1,24 @@
 @Metadata.layer: #CORE
+@UI: {
+headerInfo: {
+typeName: 'Vendor Registration',
+typeNamePlural: 'Vendor Registrations',
+title: {
+type: #STANDARD,
+value: 'RegistrationId',
+label: 'VendorCategory'}}}
+
+@UI.presentationVariant: [{
+    sortOrder: [{ by: 'RegistrationId', direction: #ASC }],
+    visualizations: [{ type: #AS_LINEITEM }],
+    requestAtLeast: ['RegistrationId']
+}]
+
+
+@UI.selectionVariant: [{
+    qualifier: 'InitialLoad',
+    text: 'Default Load on Launch'}]
+
 annotate view ZRD_PV_HEADER with
 {
   @UI.facet: [{ id: 'Header',
@@ -35,8 +55,20 @@ annotate view ZRD_PV_HEADER with
   @UI: { lineItem: [{ position:40 }]}
   RegDate;
 
-  @UI.hidden: true
+  @EndUserText.label: 'Status'
+  @UI: { lineItem: [{ position: 60 },
+  { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Approve' },
+  { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject' }
+  ],
+  identification: [{ position: 60 },
+  { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Approve' },
+  { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject' }
+  ] }
+  //  @UI: { lineItem: [{ position:40 }]}
   Status;
-
+  @UI: { lineItem: [ { position: 60 } ],
+  identification: [ { position: 60 } ],
+  selectionField: [{ position: 60 }]}
+  Keterangan;
 
 }

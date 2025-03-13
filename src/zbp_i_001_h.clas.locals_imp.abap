@@ -3,7 +3,7 @@ CLASS lhc_Header DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     CONSTANTS:
       BEGIN OF reg_status,
-        new      TYPE c LENGTH 1 VALUE 'N',
+        new      TYPE c LENGTH 1 VALUE '-',
         approved TYPE c LENGTH 1 VALUE 'A',
         rejected TYPE c LENGTH 1 VALUE 'R',
       END OF reg_status.
@@ -37,9 +37,47 @@ CLASS lhc_Header IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD acceptTravel.
+    MODIFY ENTITIES OF zi_001_h IN LOCAL MODE
+  ENTITY Header
+  UPDATE
+  FIELDS ( status keterangan )
+  WITH VALUE #( FOR key IN keys
+  ( %tky = key-%tky
+  status = reg_status-approved
+  keterangan = key-%param-Keterangan ) )
+  FAILED failed
+  REPORTED reported.
+
+    READ ENTITIES OF zi_001_h IN LOCAL MODE
+    ENTITY Header
+    ALL FIELDS WITH CORRESPONDING #( keys )
+    RESULT DATA(headers).
+
+    result = VALUE #( FOR header IN headers
+    ( %tky = header-%tky
+    %param = header ) ).
   ENDMETHOD.
 
   METHOD rejectTravel.
+       MODIFY ENTITIES OF zi_001_h IN LOCAL MODE
+ENTITY Header
+UPDATE
+FIELDS ( status keterangan )
+WITH VALUE #( FOR key IN keys
+( %tky = key-%tky
+status = reg_status-rejected
+keterangan = key-%param-Keterangan ) )
+FAILED failed
+REPORTED reported.
+
+    READ ENTITIES OF zi_001_h IN LOCAL MODE
+    ENTITY Header
+    ALL FIELDS WITH CORRESPONDING #( keys )
+    RESULT DATA(headers).
+
+    result = VALUE #( FOR header IN headers
+    ( %tky = header-%tky
+    %param = header ) ).
   ENDMETHOD.
 
   METHOD setStatus.

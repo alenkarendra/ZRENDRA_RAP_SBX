@@ -1,8 +1,8 @@
-managed implementation in class zbp_i_001_h unique;
+managed implementation in class zbp_i_001_h unique; //Menyematkan impelemntasi program (spesifik)
 strict ( 2 );
 
-define behavior for ZI_001_H alias Header
-persistent table ztrd_h_001
+define behavior for ZI_001_H alias Header   //Memberi alias
+persistent table ztrd_h_001                 //Disimpan pada table ztrd_h_001
 lock master
 authorization master ( instance )
 etag master LocalLastChangedAt
@@ -11,8 +11,8 @@ etag master LocalLastChangedAt
   field ( numbering : managed ) HeadregUuid;
   field ( readonly ) HeadregUuid, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
 
-  action ( features : instance ) acceptTravel result [1] $self;
-  action ( features : instance ) rejectTravel result [1] $self;
+  action ( features : instance ) acceptTravel parameter ZR_A_POPUP result [1] $self;
+  action ( features : instance ) rejectTravel parameter ZR_A_POPUP result [1] $self;
 
   determination setRegistrationId on save { create; }
   determination setStatus on modify { create; }
@@ -35,6 +35,7 @@ etag master LocalLastChangedAt
       LastChangedAt      = last_changed_at;
       LocalLastChangedAt = local_last_changed_at;
       Status             = status;
+      Keterangan         = keterangan;
     }
 }
 

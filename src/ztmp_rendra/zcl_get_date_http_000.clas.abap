@@ -40,7 +40,7 @@ CLASS zcl_get_date_http_000 IMPLEMENTATION.
     ui_html =  |<html> \n| &&
     |<body> \n| &&
     |<title>General Information</title> \n| &&
-    |<p style="color:DodgerBlue;"> Hello there, { user_formatted_name } </p> \n | &&
+    |<p style="color:DodgerBlue;"> Hello Gaess, { user_formatted_name } </p> \n | &&
     |<p> Today, the date is:  { system_date }| &&
     |<p> | &&
     |</body> \n| &&

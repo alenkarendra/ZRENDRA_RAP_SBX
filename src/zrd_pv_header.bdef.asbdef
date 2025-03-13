@@ -1,7 +1,7 @@
 projection;
 strict ( 2 );
 
-define behavior for ZRD_PV_HEADER //alias <alias_name>
+define behavior for ZRD_PV_HEADER alias Header
 {
   use create;
   use update;
