@@ -1,9 +1,13 @@
-managed implementation in class zbp_i_001_h unique; //Menyematkan impelemntasi program (spesifik)
-strict ( 2 );
+managed; //Menyematkan impelemntasi program (spesifik)
+//strict ( 2 );
+with draft;
+
 
 define behavior for ZI_001_H alias Header   //Memberi alias
+implementation in class zbp_i_001_h unique
 persistent table ztrd_h_001                 //Disimpan pada table ztrd_h_001
-lock master
+draft table zrddraft_h_001
+lock master total etag LastChangedAt                                          //Penguncian data pada tingkat master ?
 authorization master ( instance )
 etag master LocalLastChangedAt
 {
@@ -40,7 +44,9 @@ etag master LocalLastChangedAt
 }
 
 define behavior for ZI_001_I alias Item
+implementation in class zbp_i_001_h unique
 persistent table ztrd_i_001
+draft table zrddraft_i_001
 lock dependent by Header
 authorization dependent by Header
 etag master LocalLastChangedAt

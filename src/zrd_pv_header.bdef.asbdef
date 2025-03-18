@@ -1,5 +1,6 @@
 projection;
-strict ( 2 );
+//strict ( 2 );  //Kalo pake odata v2, gunakan ini
+use draft;       // Kalo pake odata v4, gunakan ini dan hapus bagian strict
 
 define behavior for ZRD_PV_HEADER alias Header
 {
@@ -13,7 +14,7 @@ define behavior for ZRD_PV_HEADER alias Header
   use association Item { create; }
 }
 
-define behavior for ZRD_PV_ITEM //alias <alias_name>
+define behavior for ZRD_PV_ITEM alias Item
 {
   use update;
   use delete;

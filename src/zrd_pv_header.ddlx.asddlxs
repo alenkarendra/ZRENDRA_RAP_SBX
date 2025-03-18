@@ -36,19 +36,21 @@ annotate view ZRD_PV_HEADER with
              ]
 
   @UI: { lineItem: [ { position: 10, importance: #HIGH } ],
-         identification: [ { position: 10 } ],
+         identification: [ { position: 10, label: 'Header Reg UUID' } ],
          selectionField: [{ position: 10 }]}
   HeadregUuid;
-  @UI: { lineItem: [ { position: 20 } ],
-   identification: [ { position: 20 } ],
+
+  @UI: { lineItem: [ { position: 20, label: 'RegistrationId' } ],
+   identification: [ { position: 20, label: 'RegistrationId' } ],
    selectionField: [{ position: 20 }]}
   RegistrationId;
+
   @UI: { lineItem: [ { position: 30 } ],
-   identification: [ { position: 30 } ],
+   identification: [ { position: 30, label: 'Vendor Name' } ],
    selectionField: [{ position: 30 }]}
   VendorName;
   @UI: { lineItem: [ { position: 40 } ],
-   identification: [ { position: 40 } ],
+   identification: [ { position: 40, label: 'Vendor Category' } ],
    selectionField: [{ position: 40 }]}
   VendorCategory;
 
@@ -56,7 +58,7 @@ annotate view ZRD_PV_HEADER with
   RegDate;
 
   @EndUserText.label: 'Status'
-  @UI: { lineItem: [{ position: 60 },
+  @UI: { lineItem: [{ position: 60, criticality: 'Criticality', criticalityRepresentation: #WITH_ICON, importance: #HIGH },
   { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Approve' },
   { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject' }
   ],
@@ -66,8 +68,10 @@ annotate view ZRD_PV_HEADER with
   ] }
   //  @UI: { lineItem: [{ position:40 }]}
   Status;
+
   @UI: { lineItem: [ { position: 60 } ],
-  identification: [ { position: 60 } ],
+  identification: [ { position: 60, label: 'Keterangan' } ],
+  multiLineText: true,
   selectionField: [{ position: 60 }]}
   Keterangan;
 

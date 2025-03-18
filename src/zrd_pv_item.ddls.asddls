@@ -1,5 +1,6 @@
 @EndUserText.label: 'Projection View Item'
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+//@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @Metadata.allowExtensions: true
 @Search.searchable: true
 define view entity ZRD_PV_ITEM

@@ -1,4 +1,8 @@
 @Metadata.layer: #CORE
+@UI: {
+    headerInfo: { typeName: 'Item',
+                  typeNamePlural: 'Items',
+                  title: { type: #STANDARD, value: 'ItemregUuid' } }}
 annotate view ZRD_PV_ITEM with
 {
   @UI.facet: [{ id: 'Header',
@@ -7,19 +11,22 @@ annotate view ZRD_PV_ITEM with
                   label: 'Header',
                   position: 10 }]
   @UI: { lineItem: [ { position: 10 } ],
-     identification: [ { position: 10 } ],
+     identification: [ { position: 10, label: 'Item UUID' } ],
      selectionField: [{ position: 10 }]}
   ItemregUuid;
+
   @UI: { lineItem: [ { position: 20 } ],
-   identification: [ { position: 20 } ],
+   identification: [ { position: 20, label: 'Header UUID' } ],
    selectionField: [{ position: 20 }]}
   HeadregUuid;
+
   @UI: { lineItem: [ { position: 30 } ],
-   identification: [ { position: 30 } ],
+   identification: [ { position: 30, label: 'Position Number' } ],
    selectionField: [{ position: 30 }]}
   PositionNumber;
+
   @UI: { lineItem: [ { position: 40 } ],
-   identification: [ { position: 40 } ],
+   identification: [ { position: 40, label: 'Item Key Name' } ],
    selectionField: [{ position: 40 }]}
   ItemKeyname;
 
